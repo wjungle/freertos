@@ -79,16 +79,6 @@ void read_romfs_task(void *pvParameters)
 	while (1);
 }
 
-
-void vTask1(void *pvParameters)
-{
-	const char *pcTaskName = "Task 1 is running\r\n";
-	volatile unsigned long ul;
-	
-	fio_write(1, pcTaskName, 20);
-	while(1);
-}
-
 int main()
 {
 	init_rs232();
@@ -108,8 +98,6 @@ int main()
 	xTaskCreate(read_romfs_task,
 	            (signed portCHAR *) "Read romfs",
 	            512 /* stack size */, NULL, tskIDLE_PRIORITY + 1, NULL);
-
-	xTaskCreate(vTask1, "Task1", 512, NULL, tskIDLE_PRIORITY + 1 , NULL);
 
 	/* Start running the tasks. */
 	vTaskStartScheduler();
