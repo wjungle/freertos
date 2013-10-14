@@ -109,7 +109,7 @@ int main()
 	            (signed portCHAR *) "Read romfs",
 	            512 /* stack size */, NULL, tskIDLE_PRIORITY + 1, NULL);
 
-	xTaskCreate(vTask1, "Task1", 512, NULL, tskIDLE_PRIORITY + 1 , NULL);
+	xTaskCreate(vTask1, "Task1", 512, NULL, tskIDLE_PRIORITY + 1, NULL);
 
 	/* Start running the tasks. */
 	vTaskStartScheduler();

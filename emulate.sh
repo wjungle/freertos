@@ -8,7 +8,7 @@ emulate () {
 	$QEMU_STM32 \
 		-M stm32-p103 \
 		-kernel $1 \
-		-serial stdio \
+#		-serial stdio \
 		-parallel none \
 		-monitor tcp:localhost:4444,server,nowait <&0 & pid=$!
 }
@@ -24,7 +24,7 @@ stm32_qemu () {
 		echo "Modeling failed to execute in $2 seconds, giving up."
 		exit -1
 	fi
-	kill $timer
+#	kill $timer
 }
 
 stm32_qemu $1 5
